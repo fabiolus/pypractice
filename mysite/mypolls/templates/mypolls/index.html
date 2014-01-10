@@ -1,0 +1,14 @@
+<!-- {% load staticfiles %}
+
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> -->
+{% if poll_list %}
+    <ul>
+    {% for poll in poll_list %}
+        <li> <a href="{% url 'mypolls:detail' poll.id %}" >{{poll.question }}</a></li>
+    
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Polls available.</p>
+    
+{% endif %}
