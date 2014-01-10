@@ -1,6 +1,6 @@
 <H1>{{ poll.question }}</H1>
 {% if error_message %}<p><strong>{{ error_message }} </strong></p>{% endif %}
-<form action="{% url 'polls:vote' poll.id %}" method="post">
+<form action="{% url 'mypolls:vote' poll.id %}" method="post">
 {% csrf_token %}
     {% for choice in poll.choice_set.all %}
     <input type="radio" name="choice" id="{{ forloop.counter }}" value="{{ choice.id }}" />
@@ -9,3 +9,5 @@
     
     <input type="submit" value="Vote" />
 </form>
+
+<a href="{% url 'mypolls:index'%}"> Back to My Polls</a>
